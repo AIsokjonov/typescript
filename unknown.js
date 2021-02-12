@@ -1,6 +1,11 @@
-var notSure = 4;
-console.log(notSure, typeof (notSure));
-notSure = "maybe a string instead";
-console.log(notSure, typeof (notSure));
-notSure = false;
-console.log(notSure, typeof (notSure));
+function getValue() {
+    if (Math.random() > 0.5) {
+        return undefined;
+    }
+    return "Good";
+}
+var value = getValue();
+if (!value) {
+    value = "Default";
+}
+console.log(value);
