@@ -27,4 +27,4 @@ function openWindow(option: OptionOpen): void {
 	}
 }
 let myOption: OptionOpen = true;
-openWindow(myOption
+openWindow(myOption);
