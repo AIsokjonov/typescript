@@ -1,12 +1,9 @@
-var component1 = {
-    id: 1,
-    name: "My #1 component",
-    props: { color: "blue" }
-};
-var component2 = {
-    id: 2,
-    name: "My #2 component",
-    props: { size: 7 }
-};
-console.log(component1);
-console.log(component2);
+function identity(arg) {
+    return arg;
+}
+var output1 = identity("string #1");
+// the following line tell the compiler
+// to automatically detect the type for us
+var output2 = identity("string #2");
+console.log(output1);
+console.log(output2);
