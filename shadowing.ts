@@ -1,25 +1,32 @@
-function f1(n: number) {
-  console.log("Parameter value:", n);
-  let i: number = 100; // shadow #1
-  console.log("Variable value", i);
-  for (let i = 100; i < 101; i++) {
-    // shadow #2
-    console.log("Look i value:", i);
-    for (let i = 200; i < 201; i++) {
-      // shadow #3
-      console.log("Inner look i value:", i);
+
+// shadowing
+
+// function f1(i: number): void {
+//   console.log(`parameter: ${i}`);
+
+//   // shadowing
+//   let i: number = 24;
+//   console.log(`shadowed var: ${i}`);
+// }
+
+function f2(i2: number) {
+  let i: number = 10;
+  console.log(`original: ${i}`);
+  for(let i = 0; i < 5; i++) {
+    console.log(`shadow #11: ${i}`);
+    for(let i = 10; i < 15; i++) {
+      console.log(`shadow #2: ${i}`);
     }
   }
-  console.log(i);
 }
-f1(0);
+f2(2);
 
-function f2() {
-  let i: number = 10;
+function f3() {
+  let i: number = 61;
   if(true) {
-    let i: string = "i is a string";
-    console.log("variable in IF after value:", i);
+    // console.log(`original: ${i}`);
+    let i: string = "17";
+    console.log(`shadowed: ${i}`);
   }
-  console.log("variable value:", i);
-}
-f2();
+};
+f3();

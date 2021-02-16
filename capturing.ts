@@ -1,34 +1,23 @@
-function mainFunc() {
+// capturing
+function capture() {
   let innerFunction;
   if(true) {
-    let variableCapturedByInnerFunction = "AvailabletoInnerFunction";
+    let myVar = "This variable is captured by inner scope";
     innerFunction = function() {
-      return variableCapturedByInnerFunction;
-    }
+      return myVar;
+    };
+    myVar = "changed";
   }
   return innerFunction();
-}
-console.log(mainFunc());
+};
+console.log(capture());
 
-function mainFunc2() {
-  let innerFunction;
-  if(true) {
-    let variableCapturedByInnerFunction = "AvailableToInnerFunction";
-    innerFunction = function() {
-      return variableCapturedByInnerFunction;
-    }
-    variableCapturedByInnerFunction = "Changed";
-  }
-  return innerFunction();
-}
-console.log(mainFunc2());
-
-function mainFunc3() {
+function f2() {
   let innerFunction;
   let listFunctions = [];
   for(let i = 10; i < 15; i++) {
-    innerFunction = function(param1: number) {
-      return param1;
+    innerFunction = function(param: number) {
+      return param;
     }
     listFunctions.push(innerFunction(i));
   }
@@ -36,22 +25,23 @@ function mainFunc3() {
     console.log(listFunctions[k]);
   }
 }
-mainFunc3();
+console.log(f2());
 
-function mainFunc4() {
+// freezing a variable
+function f3() {
   let innerFunction;
   let listFunctions = [];
   for(let i = 10; i < 15; i++) {
-    innerFunction = (function(param1: number) {
+    innerFunction = (function(param: number) {
       let f = function() {
-        return param1;
+        return param;
       }
       return f;
-    })(i * 1000);
+    })(i * 100);
     listFunctions.push(innerFunction);
   }
   for(let k = 0; k < 5; k++) {
     console.log(listFunctions[k]());
   }
-}
-mainFunc4();
+};
+f3();

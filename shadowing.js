@@ -1,24 +1,41 @@
-function f1(n) {
-    console.log("Parameter value:", n);
-    var i = 100; // shadow #1
-    console.log("Variable value", i);
-    for (var i_1 = 100; i_1 < 101; i_1++) {
-        // shadow #2
-        console.log("Look i value:", i_1);
-        for (var i_2 = 200; i_2 < 201; i_2++) {
-            // shadow #3
-            console.log("Inner look i value:", i_2);
+// shadowing
+// function f1(i: number): void {
+//   console.log(`parameter: ${i}`);
+//   // shadowing
+//   let i: number = 24;
+//   console.log(`shadowed var: ${i}`);
+// }
+function f2(i2) {
+    var i = 10;
+    console.log("original: " + i);
+    for (var i_1 = 0; i_1 < 5; i_1++) {
+        console.log("shadow #11: " + i_1);
+        for (var i_2 = 10; i_2 < 15; i_2++) {
+            console.log("shadow #2: " + i_2);
         }
     }
-    console.log(i);
 }
-f1(0);
-function f2() {
-    var i = 10;
+f2(2);
+function f3() {
+    var i = 61;
     if (true) {
-        var i_3 = "i is a string";
-        console.log("variable in IF after value:", i_3);
+        // console.log(`original: ${i}`);
+        var i_3 = "17";
+        console.log("shadowed: " + i_3);
     }
-    console.log("variable value:", i);
 }
-f2();
+;
+f3();
+// capturing
+function capture() {
+    var innerFunction;
+    if (true) {
+        var myVar_1 = "This variable is captured by inner scope";
+        innerFunction = function () {
+            return myVar_1;
+        };
+    }
+    return innerFunction;
+}
+;
+console.log(capture());
