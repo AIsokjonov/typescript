@@ -26,16 +26,3 @@ function f3() {
 }
 ;
 f3();
-// capturing
-function capture() {
-    var innerFunction;
-    if (true) {
-        var myVar_1 = "This variable is captured by inner scope";
-        innerFunction = function () {
-            return myVar_1;
-        };
-    }
-    return innerFunction;
-}
-;
-console.log(capture());

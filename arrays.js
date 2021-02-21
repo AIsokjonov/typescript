@@ -44,4 +44,3 @@ myArray5.push("Bob");
 myArray5.push(13);
 myArray5.push(false);
 console.log(myArray5);
-console.log(typeof (myArray5));

@@ -83,3 +83,34 @@ function reducer(prevState, action) {
     }
 }
 ;
+function turnstileReducer(prevState, action) {
+    switch (prevState.type) {
+        case 'dataPartiallyLoaded':
+        case 'loading':
+            switch (action.type) {
+                case 'dataFetchingInProgress':
+                    return { type: 'dataPartiallyLoaded', data: action.data };
+                case 'dataFetchingSucceeded':
+                    return { type: 'withData', data: action.data };
+                case 'dataFetchingCancelled':
+                    return { type: 'empty' };
+                case 'dataFetchingFailed':
+                    return { type: 'error', errorMessage: action.errorMessage };
+                case 'dataRequested':
+                    return prevState;
+            }
+        case 'empty':
+        case 'error':
+        case 'withData':
+            switch (action.type) {
+                case 'dataRequested':
+                    return { type: 'loading' };
+                case 'dataFetchingCancelled':
+                case 'dataFetchingFailed':
+                case 'dataFetchingSucceeded':
+                case 'dataFetchingInProgress':
+                    return prevState;
+            }
+    }
+}
+;

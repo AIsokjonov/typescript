@@ -31,6 +31,3 @@ function ajaxCall() {
 }
 ;
 console.log(ajaxCall());
-// literal type with const
-var c = "c"; // type "c";
-console.log(typeof (c));

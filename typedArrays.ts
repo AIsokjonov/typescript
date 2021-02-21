@@ -24,3 +24,10 @@ items3.push(63);
 items3.pop();
 
 console.log(items3);
+
+// rest parameters
+function printFunc(strParam, ...scores) {
+	console.log(strParam, scores);
+};
+
+printFunc("Hello, World", 123,423,634,12);

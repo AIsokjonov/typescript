@@ -18,3 +18,13 @@ items3.push(534);
 items3.push(63);
 items3.pop();
 console.log(items3);
+// rest parameters
+function printFunc(strParam) {
+    var scores = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        scores[_i - 1] = arguments[_i];
+    }
+    console.log(strParam, scores);
+}
+;
+printFunc("Hello, World", 123, 423, 634, 12);

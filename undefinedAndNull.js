@@ -1,4 +1,3 @@
-"use strict";
 // undefined
 var variableNotInitialized;
 console.log(variableNotInitialized);
