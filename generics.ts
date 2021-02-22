@@ -90,4 +90,57 @@ console.log(locations);
 // "Promise<ReturnType>"
 const fetch2 = require("node-fetch");
 const res: Promise<Response> = fetch2("https://swapi.dev/api/");
-res.then(res => console.log(res));
+// res.then(res => console.log(`Response Status: ${res.status}`));
+
+// "Readonly<Type>"
+type Action = {
+	type: "fetchedName";
+	data: string;
+};
+
+let ro: Readonly<Action> = { type: 'fetchedName', data: 'this is the data' };
+console.log(ro);
+
+// "Partial<Type>"
+type Contact = {
+	name: string;
+	email: string;
+};
+
+let pt: Partial<Contact> = { };
+console.log(`\nPartial type: ${pt}`);
+
+// Key-Value type with "Record<KeyType, ValueType>"
+type Result = {
+	firstname: string;
+	lastname: string;
+	score: number;
+};
+
+type ResultRecord = Record<string, Result>;
+let rc: ResultRecord = {
+	"bob": {
+		firstname: "Bob",
+		lastname: "Marley",
+		score: 80 
+	},
+	"james": {
+		firstname: "James",
+		lastname: "Radagan",
+		score: 90
+	}
+};
+console.log(`Record: ${rc.james.firstname}, ${rc.james.lastname}, ${rc.james.score}`);
+
+// custom generics
+interface Person { name: string; age: number };
+const persons: Person[] = [{ name: 'john', age: 234 }, { name: 'bob', age: 34 }]
+function myMap<TElement, TResult>(
+	items: TElement[],
+	mappingFunction: (item: TElement) => TResult
+): TResult[] {
+	return[];
+};
+
+const names = myMap<Person, string>(persons, person => person.name);
+console.log(names);

@@ -56,4 +56,28 @@ console.log(locations);
 // "Promise<ReturnType>"
 var fetch2 = require("node-fetch");
 var res = fetch2("https://swapi.dev/api/");
-res.then(function (res) { return console.log(res); });
+var ro = { type: 'fetchedName', data: 'this is the data' };
+console.log(ro);
+var pt = {};
+console.log("\nPartial type: " + pt);
+var rc = {
+    "bob": {
+        firstname: "Bob",
+        lastname: "Marley",
+        score: 80
+    },
+    "james": {
+        firstname: "James",
+        lastname: "Radagan",
+        score: 90
+    }
+};
+console.log("Record: " + rc.james.firstname + ", " + rc.james.lastname + ", " + rc.james.score);
+;
+var persons = [{ name: 'john', age: 234 }, { name: 'bob', age: 34 }];
+function myMap(items, mappingFunction) {
+    return [];
+}
+;
+var names = myMap(persons, function (person) { return person.name; });
+console.log(names);
