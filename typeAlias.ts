@@ -7,3 +7,4 @@ const robert: Score = { name: "Robert", score: 70 };
 console.log(`Tom's score: ${tom.score}`);
 console.log(`Bob's score ${bob.score}`);
 console.log(`Robert's score: ${robert.score}`);
+

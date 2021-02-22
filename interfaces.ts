@@ -83,3 +83,12 @@ class Clock implements ClockInterface {
 	}
 	constructor(h: number, m: number) {}
 };
+
+// generic interfaces
+interface Student<T> {
+  id: T;
+  score: T;
+};
+
+const stndt: Student<number> = { id: 23, score: 80 };
+console.log(`Student: ${stndt.id}, ${stndt.score}`);

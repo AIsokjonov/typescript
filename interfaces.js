@@ -46,3 +46,6 @@ var Clock = /** @class */ (function () {
     return Clock;
 }());
 ;
+;
+var stndt = { id: 23, score: 80 };
+console.log("Student: " + stndt.id + ", " + stndt.score);
