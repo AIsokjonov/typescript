@@ -21,3 +21,39 @@ function identity3(arg) {
 }
 var myIdentity = identity3;
 console.log(myIdentity(true));
+;
+;
+;
+var component1 = {
+    name: "Component #1",
+    id: 1,
+    props: { color: "blue" }
+};
+var component2 = {
+    name: "Component #2",
+    id: 2,
+    props: { size: 100 }
+};
+console.log(component1);
+console.log(component2);
+// generic and list
+var list1 = [1, 2, 3];
+list1.push(4);
+console.log(list1);
+var list2 = [1, 2, 3];
+list2.push("Here is a string");
+list2.push(false);
+console.log(list2);
+// generic vs any
+var a = ["abc", "def"];
+var s = a[0];
+console.log(s.substr(0, 2));
+// standard generic types
+// "Array<ItemType>" ==> Array<string>/Array<number> etc
+var students = ["Bob", "Robert", "Monic"];
+var locations = [[134, 134, 513], [543, 123, 65436235]];
+console.log(locations);
+// "Promise<ReturnType>"
+var fetch2 = require("node-fetch");
+var res = fetch2("https://swapi.dev/api/");
+res.then(function (res) { return console.log(res); });
