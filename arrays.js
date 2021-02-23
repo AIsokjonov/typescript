@@ -1,3 +1,4 @@
+var _a;
 // mutable arrays
 var nums = [1, 2, 3, 4, 5];
 var nums2;
@@ -44,3 +45,14 @@ myArray5.push("Bob");
 myArray5.push(13);
 myArray5.push(false);
 console.log(myArray5);
+// desstructuring array
+var _b = [1, 2, 3, 32, 75, 12], arr1 = _b[0], arr2 = _b[1], rest = _b.slice(2);
+console.log(arr1);
+console.log(arr2);
+console.log(rest);
+// swapping variables
+var item1 = 2;
+var item2 = 54;
+console.log("before swap: \nitem #1: " + item1 + "\nitem #2: " + item2);
+_a = [item2, item1], item1 = _a[0], item2 = _a[1];
+console.log("after swap: \nitem #1: " + item1 + "\nitem #2: " + item2);

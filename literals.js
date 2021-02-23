@@ -14,8 +14,8 @@ function openWindow(option) {
         console.log("false");
     }
     else {
-        var c = option;
-        console.log(c);
+        var c_1 = option;
+        console.log(c_1);
     }
 }
 var myOption = true;

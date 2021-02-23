@@ -56,3 +56,16 @@ myArray5.push("Bob");
 myArray5.push(13);
 myArray5.push(false);
 console.log(myArray5);
+
+// desstructuring array
+let [arr1, arr2, ...rest] = [1, 2, 3, 32, 75,12];
+console.log(arr1);
+console.log(arr2);
+console.log(rest);
+
+// swapping variables
+let item1: number = 2;
+let item2: number = 54;
+console.log(`before swap: \nitem #1: ${item1}\nitem #2: ${item2}`);
+[item1, item2] = [item2, item1];
+console.log(`after swap: \nitem #1: ${item1}\nitem #2: ${item2}`);
