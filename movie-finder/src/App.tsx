@@ -27,12 +27,31 @@ function reducer(state: State, action: Action): State {
       return { status: 'success', data: action.results };
     case 'failure':
       return { status: 'error', error: action.error };
-  }
-}
+  };
+};
+
+// Exceptions & Debugging
+// function throw1() {
+//   throw Error("Error Message here");
+// };
+
+// function throw2() {
+//   const err: Error = new Error("Another error message here");
+//   throw err;
+// };
+
+// string error
+// function throw3() {
+//   throw "Error message here with just a string";
+// };
 
 function App() {
   const [query, setQuery] = useState<string>();
   const [state, dispatch] = useReducer(reducer, { status: 'empty' });
+
+  // throw1();
+  // throw2();
+  // throw3();
 
   useEffect(() => {
     let ignore = false;
