@@ -1,89 +1,22 @@
-import { useState, useEffect, useReducer } from 'react';
+import React from 'react';
 
-type HNResponse = {
-  hits: { 
-    title: string;
-    objectID: string;
-    url: string;
-  }[]
-};
+import useMovieService  from './useMovieService';
 
-type State =
-  | { status: 'empty' }
-  | { status: 'loading' }
-  | { status: 'error', error: string }
-  | { status: 'success', data: HNResponse };
+const App: React.FC<{}> = () => {
+	const service = useMovieService();
 
-type Action =
-  | { kind: 'request' }
-  | { kind: 'success', results: HNResponse }
-  | { kind: 'failure', error: string };
-
-function reducer(state: State, action: Action): State {
-  switch (action.kind) {
-    case 'request':
-      return { status: 'loading' };
-    case 'success':
-      return { status: 'success', data: action.results };
-    case 'failure':
-      return { status: 'error', error: action.error };
-  };
-};
-
-// Exceptions & Debugging
-// function throw1() {
-//   throw Error("Error Message here");
-// };
-
-// function throw2() {
-//   const err: Error = new Error("Another error message here");
-//   throw err;
-// };
-
-// string error
-// function throw3() {
-//   throw "Error message here with just a string";
-// };
-
-function App() {
-  const [query, setQuery] = useState<string>();
-  const [state, dispatch] = useReducer(reducer, { status: 'empty' });
-
-  // throw1();
-  // throw2();
-  // throw3();
-
-  useEffect(() => {
-    let ignore = false;
-
-    dispatch({ kind: 'request' });
-    fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
-        .then(
-            (response: Response) => response.json().then(
-                (results: HNResponse) => { 
-                    if (!ignore) dispatch({ kind: 'success', results }); 
-                }
-            ),
-            (error: Error) => dispatch({ kind: 'failure', error: error.message })
-        );
-
-    return () => { ignore = true; }
-  }, [query]);
-
-  return (
-    <div>
-      <input value={query} onChange={e => setQuery(e.target.value)} />
-      {state.status === 'loading' && <span>Loading...</span>}
-      {state.status === 'success' && <ul>
-        {state.data && state.data.hits && state.data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>}
-      {state.status === 'error' && <span>Error: {state.error}</span>}
-    </div>
-  );
+	return (
+		<div>
+			{service.status === 'loading' && <div>Loading...</div>}
+			{service.status === 'loaded' &&
+				service.payload.results.map(item => (
+					<div key={item.id}>{item.title}</div>
+				))}
+			{service.status === 'error' && (
+				<div>Error, the backend moved to the dark side</div>
+			)}
+		</div>
+	);
 }
 
 export default App;
