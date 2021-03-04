@@ -1,6 +1,7 @@
-export interface Response {
+export interface APIResponse {
 	id: number;
 	title: string;
+	match: any;
 };
 
 interface ServiceInit {

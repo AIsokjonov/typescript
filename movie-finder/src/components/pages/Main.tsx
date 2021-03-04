@@ -1,5 +1,5 @@
 import React from 'react';
-import useMovieService  from '../MovieService';
+import useMovieService  from '../../services/useMovieService';
 import { Link } from 'react-router-dom';
 
 const Main: React.FC<{}> = () => {

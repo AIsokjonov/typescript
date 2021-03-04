@@ -1,7 +1,8 @@
-import MovieDetailService from '../MovieDetailsService';
+import useMovieService from '../../services/useMovieDetailService';
+import {APIResponse} from '../../../types/Service'
 
-const MovieDetails = (props: Response) => {
-	const service = MovieDetailService(props);
+const MovieDetails = (props: APIResponse) => {
+	const service = useMovieService(props);
 
 	return (
 		<div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Main from './pages/Main';
-import MovieDetails from './pages/MovieDetails';
+import Main from './components/pages/Main';
+import MovieDetails from './components/pages/MovieDetails';
 
 const Routes: React.FC<{}> = () => {
 	return (

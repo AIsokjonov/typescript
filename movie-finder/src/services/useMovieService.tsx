@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Response, Service } from '../types/Service';
+import { APIResponse, Service } from '../../types/Service';
 
 export interface Responses {
-	results: Response[];
+	results: APIResponse[];
 }
 
 const useMovieService = () => {
