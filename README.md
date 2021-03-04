@@ -1,2 +1,1 @@
-# typescript
-Typescript
+test project using typescript
