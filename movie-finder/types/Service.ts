@@ -1,6 +1,8 @@
 export interface APIResponse {
 	id: number;
 	title: string;
+	release_date: string;
+	poster_path: string | undefined;
 	match: any;
 };
 
