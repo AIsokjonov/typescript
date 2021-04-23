@@ -1,1 +1,1 @@
-test project using typescript
+Movie finder app using Typescript

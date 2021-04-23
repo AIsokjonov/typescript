@@ -1,1 +1,0 @@
-Movie finder app using Typescript
